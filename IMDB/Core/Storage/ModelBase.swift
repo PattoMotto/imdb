@@ -13,8 +13,10 @@ protocol ModelStorageBase {
 extension ModelStorageBase {
 
     func readCodable<T>() -> T? where T: Codable {
-        let model: SearchModel? = storage.read(key: key)
-        return model as? T
+        guard let model: T = storage.read(key: key) else {
+            return nil
+        }
+        return model
     }
 
     func writeCodable<T>(value: T) where T: Codable {

@@ -33,7 +33,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPr-jP-dna">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPr-jP-dna">
                         <rect key="frame" x="173.5" y="67" width="185.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,6 +53,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.90353732638888884" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="MmA-sU-leH" firstAttribute="leading" secondItem="132-oE-yZc" secondAttribute="trailing" constant="8" id="0Wp-K6-GXV"/>
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="132-oE-yZc" secondAttribute="bottom" id="6m5-eL-5uP"/>

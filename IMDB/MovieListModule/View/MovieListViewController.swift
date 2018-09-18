@@ -6,7 +6,6 @@ import UIKit
 class MovieListViewController: UITableViewController {
 
     private let minRow = CGFloat(222)
-    private var fetchedAll = false
     private var movies: [MovieModel] = []
     var output: MovieListViewOutput?
 
@@ -25,6 +24,9 @@ class MovieListViewController: UITableViewController {
         tableView.register(nib, forCellReuseIdentifier: MovieTableViewCell.reuseIdentifier)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = minRow
+        tableView.allowsSelection = false
+        tableView.backgroundColor = #colorLiteral(red: 0.9227145314, green: 0.9227145314, blue: 0.9227145314, alpha: 1)
+        tableView.tableFooterView = UIView()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,6 +42,10 @@ class MovieListViewController: UITableViewController {
             return MovieTableViewCell()
         }
         cell.bind(model: movies[indexPath.row])
+        // pre fetch next page
+        if (indexPath.row + 3 == movies.count) {
+            output?.didScrollToBottom()
+        }
         return cell
     }
 
@@ -48,6 +54,7 @@ class MovieListViewController: UITableViewController {
     }
 }
 
+extension MovieListViewController: ProgressHUD { }
 extension MovieListViewController: MovieListViewInput {
 
     func showTitle(title: String) {
@@ -57,9 +64,5 @@ extension MovieListViewController: MovieListViewInput {
     func showMovieList(movies: [MovieModel]) {
         self.movies = movies
         tableView.reloadData()
-    }
-
-    func isFetchedAllPage() {
-        fetchedAll = true
     }
 }

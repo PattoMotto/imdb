@@ -6,36 +6,52 @@ final class SearchPresenter {
     weak var view: SearchViewInput?
     var router: SearchRouterInput?
     var interactor: SearchInteractorInput?
+    var page = 1
+    var title = ""
+
+    private func search(title: String) {
+        view?.showLoading()
+        self.title = title
+        interactor?.search(title: title)
+    }
 }
 
 extension SearchPresenter: SearchViewOutput {
-    func searchTextDidTap() {
-        view?.showFocusedLayout()
-        interactor?.lastSearch()
+    func viewIsReady() {
+        interactor?.fetchRecentSearch()
     }
 
-    func searchButtonDidTap() {
+    func searchTextDidTap() {
         view?.showFocusedLayout()
-        view?.showLoading()
-        interactor?.search()
+    }
+
+    func searchButtonDidTap(title: String) {
+        search(title: title)
+    }
+
+    func recentSearchDidTap(title: String) {
+        search(title: title)
     }
 }
 
 extension SearchPresenter: SearchInteractorOutput {
-    func success() {
+    func success(movies: [MovieModel], isFinalPage: Bool) {
         view?.showNormalLayout()
         view?.showSuccess()
-        let movies = (0...100).map { _ in
-            MovieModel(title: "Batman", posterPath: "/kBf3g9crrADGMc2AMAMlLBgSm2h.jpg", releaseDate: Date(), overview: "The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker, who has seized control of Gotham's underworld.")
-        }
-        router?.routeToResultList(searchTitle: "TEST title", movies: movies)
+        interactor?.saveRecentSearch(title: title)
+        interactor?.fetchRecentSearch()
+        router?.routeToResultList(
+            searchTitle: title,
+            movies: movies,
+            isFinalPage: isFinalPage
+        )
     }
 
-    func failure() {
-        view?.showError()
+    func failure(message: String) {
+        view?.showError(message: message)
     }
 
-    func lastSearchCompleted() {
-        view?.showLastSearch()
+    func success(recentSearch: [SearchModel]) {
+        view?.show(recentSearch: recentSearch)
     }
 }

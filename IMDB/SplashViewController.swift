@@ -25,6 +25,8 @@ class SplashViewController: UIViewController {
         let navigationViewController = UINavigationController(
             rootViewController: viewController
         )
+        navigationViewController.modalPresentationStyle = .custom
+        navigationViewController.modalTransitionStyle = .crossDissolve
         present(navigationViewController, animated: true)
     }
 }

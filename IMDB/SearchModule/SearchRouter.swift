@@ -7,10 +7,13 @@ final class SearchRouter {
 }
 
 extension SearchRouter: SearchRouterInput {
-    func routeToResultList(searchTitle: String, movies: [MovieModel]) {
+    func routeToResultList(searchTitle: String,
+                           movies: [MovieModel],
+                           isFinalPage: Bool) {
         let movieListVC = MovieListModuleBuilder.build(
             searchTitle: searchTitle,
-            movies: movies
+            movies: movies,
+            isFinalPage: isFinalPage
         )
         guard let navigationController = viewController?.navigationController else {
             return
