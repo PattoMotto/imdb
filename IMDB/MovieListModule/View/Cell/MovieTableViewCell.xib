@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="288" id="pvb-Cb-AHm" customClass="MovieTableViewCell" customModule="IMDB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pvb-Cb-AHm" id="jlL-7r-QkB">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="132-oE-yZc">
+                        <rect key="frame" x="16" y="11" width="150" height="200"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="AWJ-Se-uhn"/>
+                            <constraint firstAttribute="width" secondItem="132-oE-yZc" secondAttribute="height" multiplier="3:4" id="TY6-6O-nCb"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="These excellant intentions were" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoD-Ll-zVI">
+                        <rect key="frame" x="173.5" y="11" width="185.5" height="48"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPr-jP-dna">
+                        <rect key="frame" x="173.5" y="67" width="185.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAS-Me-UXQ">
+                        <rect key="frame" x="16" y="219" width="342.5" height="20"/>
+                        <string key="text">These excellant intentions were strengthed when he enterd the Father Superior's diniing-room, though, stricttly speakin, it was not a dining-room, for the Father Superior had only two rooms alltogether; they were, however, much larger and more comfortable than Father Zossima's</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1989-06-23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmA-sU-leH">
+                        <rect key="frame" x="174" y="96" width="185" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="MmA-sU-leH" firstAttribute="leading" secondItem="132-oE-yZc" secondAttribute="trailing" constant="8" id="0Wp-K6-GXV"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="132-oE-yZc" secondAttribute="bottom" id="6m5-eL-5uP"/>
+                    <constraint firstAttribute="rightMargin" secondItem="RPr-jP-dna" secondAttribute="right" id="AGO-kB-0TL"/>
+                    <constraint firstItem="VoD-Ll-zVI" firstAttribute="leading" secondItem="132-oE-yZc" secondAttribute="trailing" constant="8" id="Bfo-VE-1eh"/>
+                    <constraint firstItem="RPr-jP-dna" firstAttribute="top" secondItem="VoD-Ll-zVI" secondAttribute="bottom" constant="8" id="L8l-2A-GEb"/>
+                    <constraint firstItem="MAS-Me-UXQ" firstAttribute="leading" secondItem="jlL-7r-QkB" secondAttribute="leadingMargin" id="U0h-mu-QDY"/>
+                    <constraint firstItem="132-oE-yZc" firstAttribute="top" secondItem="jlL-7r-QkB" secondAttribute="topMargin" id="ZfW-y5-3gN"/>
+                    <constraint firstAttribute="rightMargin" secondItem="MAS-Me-UXQ" secondAttribute="right" id="eKo-n4-uzO"/>
+                    <constraint firstItem="MAS-Me-UXQ" firstAttribute="top" secondItem="132-oE-yZc" secondAttribute="bottom" constant="8" id="ewo-Iw-5tg"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="MmA-sU-leH" secondAttribute="trailing" id="fEh-Rm-F3q"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="MAS-Me-UXQ" secondAttribute="bottom" id="lPv-vL-uVi"/>
+                    <constraint firstItem="RPr-jP-dna" firstAttribute="leading" secondItem="132-oE-yZc" secondAttribute="trailing" constant="8" id="lVl-ac-RAw"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="VoD-Ll-zVI" secondAttribute="trailing" id="maW-hd-RYh"/>
+                    <constraint firstItem="MmA-sU-leH" firstAttribute="top" secondItem="RPr-jP-dna" secondAttribute="bottom" constant="8" id="qPj-fE-Hny"/>
+                    <constraint firstItem="VoD-Ll-zVI" firstAttribute="top" secondItem="jlL-7r-QkB" secondAttribute="topMargin" id="rcs-yC-rjq"/>
+                    <constraint firstItem="132-oE-yZc" firstAttribute="leading" secondItem="jlL-7r-QkB" secondAttribute="leadingMargin" id="w4T-oW-Mhx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="overviewTextView" destination="MAS-Me-UXQ" id="ADk-eC-6LA"/>
+                <outlet property="posterImageView" destination="132-oE-yZc" id="eWQ-qn-Cv0"/>
+                <outlet property="releaseDateTextView" destination="MmA-sU-leH" id="heH-Mh-CwJ"/>
+                <outlet property="titleTextView" destination="VoD-Ll-zVI" id="RYt-2h-3xc"/>
+            </connections>
+            <point key="canvasLocation" x="-83.5" y="-27"/>
+        </tableViewCell>
+    </objects>
+</document>
