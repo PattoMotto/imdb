@@ -17,7 +17,10 @@ class MovieTableViewCell: UITableViewCell {
         releaseDateTextView.text = model.releaseDate.toReadableDate()
         overviewTextView.text = model.overview
 
-        guard let resource = posterUrl(width: Double(posterImageView.frame.width), path: model.posterPath) else { return }
+        guard let resource = posterUrl(
+            width: Double(posterImageView.frame.width),
+            path: model.posterPath
+            ) else { return }
         posterImageView.kf.setImage(with: resource)
     }
 }

@@ -22,13 +22,12 @@ final class RecentSearchManagerImpl: RecentSearchManager {
     }
 
     private func generateRecentDict() {
-        var dict:[String: Int] = [:]
+        var dict: [String: Int] = [:]
         recentList.enumerated().forEach { (index, value) in
             dict[value.title] = index
         }
         recentDict = dict
     }
-
 
     func save(title: String) {
         let newSearch = SearchModel(title: title)

@@ -20,7 +20,7 @@ extension ModelStorageBase {
     }
 
     func writeCodable<T>(value: T) where T: Codable {
-        storage.write(key: key, value: value)
+        storage.write(value: value, key: key)
     }
 
     func clear() {

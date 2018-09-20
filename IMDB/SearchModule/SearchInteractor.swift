@@ -27,7 +27,7 @@ extension SearchInteractor: SearchServiceOutput {
     func success(movies: [MovieModel], isFinalPage: Bool) {
         output?.success(movies: movies, isFinalPage: isFinalPage)
     }
-    
+
     func failure(errorMessage: String) {
         output?.failure(message: errorMessage)
     }

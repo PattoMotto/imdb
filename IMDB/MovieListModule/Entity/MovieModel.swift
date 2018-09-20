@@ -29,7 +29,7 @@ final class MovieModelMapperImpl: MovieModelMapper {
         static let overview = "overview"
     }
 
-    func fromJson(json: [String : Any]) -> MovieModel? {
+    func fromJson(json: [String: Any]) -> MovieModel? {
         let title: String = json[ResultListKey.title] as? String ?? ""
         let posterPath: String = json[ResultListKey.posterPath] as? String ?? ""
         let overview: String = json[ResultListKey.overview] as? String ?? ""
@@ -45,7 +45,7 @@ final class MovieModelMapperImpl: MovieModelMapper {
         )
     }
 
-    func fromJsonArray(jsonArray: [[String : Any]]) -> [MovieModel?] {
+    func fromJsonArray(jsonArray: [[String: Any]]) -> [MovieModel?] {
         return jsonArray.map { fromJson(json: $0) }
     }
 }

@@ -5,7 +5,7 @@ import Alamofire
 
 protocol CoreApi {
 
-    func get(url:URL,
+    func get(url: URL,
              parameters: Parameters,
              completion: @escaping (DataResponse<Any>) -> Void)
 }

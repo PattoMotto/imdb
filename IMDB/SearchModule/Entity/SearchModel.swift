@@ -16,12 +16,12 @@ struct SearchModel: Codable {
 
 extension SearchModel: Comparable {
 
-    static func <(lhs: SearchModel, rhs: SearchModel) -> Bool {
+    static func < (lhs: SearchModel, rhs: SearchModel) -> Bool {
         return lhs.timestamp < rhs.timestamp &&
             lhs.title < rhs.title
     }
 
-    static func ==(lhs: SearchModel, rhs: SearchModel) -> Bool {
+    static func == (lhs: SearchModel, rhs: SearchModel) -> Bool {
         return lhs.title == rhs.title
     }
 }

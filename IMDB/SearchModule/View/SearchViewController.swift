@@ -139,7 +139,9 @@ extension SearchViewController: UITextFieldDelegate {
         return true
     }
 
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
         updateSearchButtonState()
         return true
     }
@@ -158,7 +160,8 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") ?? UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") ??
+            UITableViewCell(style: .default, reuseIdentifier: "Cell")
         cell.textLabel?.text = recentSearch[indexPath.row].title
         cell.backgroundColor = .clear
         cell.selectedBackgroundView = selectedBackgroundView

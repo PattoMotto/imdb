@@ -8,7 +8,7 @@ public extension NibLoadable where Self: UIView {
     static var nib: UINib {
         return UINib(nibName: String(describing: self), bundle: Bundle(for: self))
     }
-    
+
     static func loadFromNib() -> Self {
         guard let view = nib.instantiate(withOwner: nil, options: nil).first as? Self else {
             fatalError("The nib \(nib) expected its root view to be of type \(self)")
@@ -43,7 +43,6 @@ public extension NibLoadable where Self: UIViewController {
         return (nibName, bundle)
     }
 }
-
 
 // Reference for NibLoadable
 // https://github.com/AliSoftware/Reusable/blob/master/Sources/View/NibLoadable.swift

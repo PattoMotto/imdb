@@ -3,10 +3,10 @@
 import Foundation
 
 protocol CoreStorage {
-    func read(key: String) -> Data?
-    func write(key: String, value: Data)
-    func read<T>(key: String) -> T? where T: Codable
-    func write<T>(key: String, value: T) where T: Codable
+    @discardableResult func read(key: String) -> Data?
+    func write(value: Data, key: String)
+    @discardableResult func read<T>(key: String) -> T? where T: Codable
+    func write<T>(value: T, key: String) where T: Codable
     func clear(key: String)
 }
 

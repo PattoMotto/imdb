@@ -14,7 +14,7 @@ final class CoreStorageImpl {
 extension CoreStorageImpl: CoreStorage {
 
     func read(key: String) -> Data? {
-        return store.data(forKey:key)
+        return store.data(forKey: key)
     }
 
     func write(value: Data, key: String) {
@@ -33,7 +33,7 @@ extension CoreStorageImpl: CoreStorage {
         }
     }
 
-    func write<T>(key: String, value: T) where T: Codable {
+    func write<T>(value: T, key: String) where T: Codable {
         if let valueString = value as? String {
             store.set(valueString, forKey: key)
         } else {
