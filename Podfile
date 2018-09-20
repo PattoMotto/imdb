@@ -5,6 +5,7 @@ target 'IMDB' do
   use_frameworks!
 
   # Pods for IMDB
+  pod 'SwiftLint'
   pod 'Typist'
   pod 'Alamofire', '~> 4.7'
   pod 'KRProgressHUD'
