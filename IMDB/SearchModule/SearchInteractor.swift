@@ -27,14 +27,8 @@ extension SearchInteractor: SearchServiceOutput {
     func success(movies: [MovieModel], isFinalPage: Bool) {
         output?.success(movies: movies, isFinalPage: isFinalPage)
     }
-    
+
     func failure(errorMessage: String) {
         output?.failure(message: errorMessage)
-    }
-}
-
-extension SearchInteractor {
-    private var randomBool: Bool {
-        return arc4random_uniform(2) == 0
     }
 }

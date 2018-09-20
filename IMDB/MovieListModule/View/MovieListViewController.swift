@@ -38,12 +38,15 @@ class MovieListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.reuseIdentifier, for: indexPath) as? MovieTableViewCell else {
-            return MovieTableViewCell()
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: MovieTableViewCell.reuseIdentifier,
+            for: indexPath
+            ) as? MovieTableViewCell else {
+                return MovieTableViewCell()
         }
         cell.bind(model: movies[indexPath.row])
         // pre fetch next page
-        if (indexPath.row + 3 == movies.count) {
+        if indexPath.row + 3 == movies.count {
             output?.didScrollToBottom()
         }
         return cell

@@ -1,15 +1,16 @@
 //Pat
 
 import Foundation
+import UIKit
 
 final class SearchRouter {
-    weak var viewController: SearchViewController?
+    weak var viewController: UIViewController?
 }
 
 extension SearchRouter: SearchRouterInput {
-    func routeToResultList(searchTitle: String,
-                           movies: [MovieModel],
-                           isFinalPage: Bool) {
+    func routeToMovieList(searchTitle: String,
+                          movies: [MovieModel],
+                          isFinalPage: Bool) {
         let movieListVC = MovieListModuleBuilder.build(
             searchTitle: searchTitle,
             movies: movies,

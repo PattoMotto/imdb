@@ -30,4 +30,3 @@ class SplashViewController: UIViewController {
         present(navigationViewController, animated: true)
     }
 }
-

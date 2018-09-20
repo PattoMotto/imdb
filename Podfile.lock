@@ -4,12 +4,14 @@ PODS:
   - KRActivityIndicatorView (2.1.2)
   - KRProgressHUD (3.2.2):
     - KRActivityIndicatorView (= 2.1.2)
+  - SwiftLint (0.27.0)
   - Typist (1.2.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - Kingfisher (~> 4.0)
   - KRProgressHUD
+  - SwiftLint
   - Typist
 
 SPEC REPOS:
@@ -18,6 +20,7 @@ SPEC REPOS:
     - Kingfisher
     - KRActivityIndicatorView
     - KRProgressHUD
+    - SwiftLint
     - Typist
 
 SPEC CHECKSUMS:
@@ -25,8 +28,9 @@ SPEC CHECKSUMS:
   Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
   KRActivityIndicatorView: 27e7a7e3da7fbc8e5405fbc4088b51cc2095a410
   KRProgressHUD: 8872da74b1c462e15c82a8fff250a2d34ee82ea2
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Typist: 61acc798767f15bf24c61fb9a43d285974380f37
 
-PODFILE CHECKSUM: 91b8df289a4fd2c2ed713ce2bfeb9a29a50d4014
+PODFILE CHECKSUM: 1e4ab3c4fccfebaae82db5c39ad14c303491e9ec
 
 COCOAPODS: 1.5.2

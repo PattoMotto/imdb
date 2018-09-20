@@ -37,7 +37,7 @@ final class SearchServiceImpl: SearchService {
 
     func search(title: String, page: Int = 1) {
         let parameters = [SearchKey.query: title,
-                          SearchKey.page: page] as [String : Any]
+                          SearchKey.page: page] as [String: Any]
         guard let url = URL(string: endpoint) else { return }
         coreApi.get(
             url: url,
@@ -49,7 +49,7 @@ final class SearchServiceImpl: SearchService {
                         let resultList = json[SearchKey.results]  as? [[String: Any]],
                         let totalPages = json[SearchKey.totalPages] as? Int {
                         let mapper = MovieModelMapperImpl()
-                        let movies = mapper.fromJsonArray(jsonArray: resultList).flatMap{ $0 }
+                        let movies = mapper.fromJsonArray(jsonArray: resultList).flatMap { $0 }
                         if movies.count > 0 {
                             strongSelf.output.success(movies: movies, isFinalPage: page >= totalPages)
                         } else {
@@ -67,5 +67,5 @@ final class SearchServiceImpl: SearchService {
                 }
         }
     }
-    
+
 }

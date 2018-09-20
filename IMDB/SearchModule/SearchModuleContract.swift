@@ -19,9 +19,9 @@ protocol SearchViewOutput: class {
 }
 
 protocol SearchRouterInput: class {
-    func routeToResultList(searchTitle: String,
-                           movies: [MovieModel],
-                           isFinalPage: Bool)
+    func routeToMovieList(searchTitle: String,
+                          movies: [MovieModel],
+                          isFinalPage: Bool)
 }
 
 protocol SearchInteractorInput: class {
