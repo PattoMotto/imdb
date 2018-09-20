@@ -3,8 +3,8 @@
 import Foundation
 
 final class MovieListInteractor {
-    var service: SearchService?
-    var output: MovieListInteractorOutput?
+    var service: SearchService!
+    var output: MovieListInteractorOutput!
 }
 
 extension MovieListInteractor: MovieListInteractorInput {
@@ -21,7 +21,7 @@ extension MovieListInteractor: SearchServiceOutput {
         }
     }
 
-    func failure(errorMessage: String) {
-        output?.failure(message: errorMessage)
+    func failure(message: String) {
+        output?.failure(message: message)
     }
 }

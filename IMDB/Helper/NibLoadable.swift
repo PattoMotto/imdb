@@ -38,8 +38,9 @@ public extension NibLoadable where Self: UIViewController {
         let bundle = Bundle(for: Self.self)
 
         // note: nib file must have the same name as the view controller class
+        // swiftlint:disable force_unwrapping
         let nibName = (String(describing: type(of: self)) as NSString).components(separatedBy: ".").first!
-
+        // swiftlint:enable force_unwrapping
         return (nibName, bundle)
     }
 }

@@ -9,6 +9,15 @@ struct MovieModel: Codable {
     let overview: String
 }
 
+extension MovieModel: Equatable {
+    static func == (lhs: MovieModel, rhs: MovieModel) -> Bool {
+        return lhs.title == rhs.title &&
+            lhs.releaseDate == rhs.releaseDate &&
+            lhs.posterPath == rhs.posterPath &&
+            lhs.overview == rhs.overview
+    }
+}
+
 func posterUrl(width: Double, path: String) -> URL? {
     let fractionOfTen = pow(10, log10(width))
     let ceilWidth = Int(((width / fractionOfTen) + 1) * fractionOfTen)

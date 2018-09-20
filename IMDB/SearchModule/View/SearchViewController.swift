@@ -23,7 +23,7 @@ final class SearchViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var keyboardDisableView: UIView!
     @IBAction func searchButtonTouchUpInside(_ sender: UIButton) {
-        guard movieTitle.count > 0 else { return }
+        guard !movieTitle.isEmpty else { return }
         output?.searchButtonDidTap(title: movieTitle)
     }
 
@@ -71,10 +71,9 @@ final class SearchViewController: UIViewController {
     }
 
     private func fadeInRecentSearchIfNeeded() {
-        if recentSearch.count > 0 {
-            animate { [weak self] in
-                self?.recentSearchTableView.alpha = 1
-            }
+        guard recentSearch.isEmpty else { return }
+        animate { [weak self] in
+            self?.recentSearchTableView.alpha = 1
         }
     }
 
@@ -86,7 +85,7 @@ final class SearchViewController: UIViewController {
     }
 
     private var shouldEnableSearchButton: Bool {
-        return movieTitle.count > 0
+        return !movieTitle.isEmpty
     }
 
     private func updateSearchButtonState() {
