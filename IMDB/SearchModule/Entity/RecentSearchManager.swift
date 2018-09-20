@@ -3,7 +3,6 @@
 import Foundation
 
 protocol RecentSearchManager {
-
     func save(title: String)
     func recentSearch() -> [SearchModel]
 }

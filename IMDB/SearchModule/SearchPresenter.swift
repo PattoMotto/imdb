@@ -6,8 +6,8 @@ final class SearchPresenter {
     weak var view: SearchViewInput?
     var router: SearchRouterInput?
     var interactor: SearchInteractorInput?
-    var page = 1
     var title = ""
+    private var page = 1
 
     private func search(title: String) {
         view?.showLoading()
@@ -40,7 +40,7 @@ extension SearchPresenter: SearchInteractorOutput {
         view?.showSuccess()
         interactor?.saveRecentSearch(title: title)
         interactor?.fetchRecentSearch()
-        router?.routeToResultList(
+        router?.routeToMovieList(
             searchTitle: title,
             movies: movies,
             isFinalPage: isFinalPage

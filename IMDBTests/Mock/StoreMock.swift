@@ -3,17 +3,19 @@
 import Foundation
 @testable import IMDB
 
-final class StoreMock: Store {
-    enum Invocation: MockInvocation {
+final class StoreMock: Store, Mockable {
+
+    var invocations = [Invocation]()
+
+    public enum Invocation: MockInvocation {
         case data(key: String)
         case set(value: Any?, key: String)
         case string(key: String)
         case removeObject(key: String)
     }
 
-    var invocations = [Invocation]()
-
     var mockData: Data?
+
     func data(forKey defaultName: String) -> Data? {
         invocations.append(.data(key: defaultName))
         return mockData
@@ -24,6 +26,7 @@ final class StoreMock: Store {
     }
 
     var mockString: String?
+
     func string(forKey defaultName: String) -> String? {
         invocations.append(.string(key: defaultName))
         return mockString

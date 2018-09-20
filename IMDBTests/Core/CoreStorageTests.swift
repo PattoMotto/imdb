@@ -5,7 +5,6 @@ import XCTest
 
 final class CoreStorageTests: XCTestCase {
 
-    private typealias Invocation = StoreMock.Invocation
     private let key = "test.key"
     private var coreStorage: CoreStorage!
     private var store: StoreMock!
@@ -25,20 +24,19 @@ final class CoreStorageTests: XCTestCase {
     func testReadData() {
         coreStorage.read(key: key)
         XCTAssertEqual(store.invocations.count, 1)
-        XCTAssertEqual(store.invocations[0], Invocation.data(key: key))
+        XCTAssertEqual(store.invocations[0], .data(key: key))
     }
 
     func testWriteData() {
         let data = Data()
         coreStorage.write(value: data, key: key)
         XCTAssertEqual(store.invocations.count, 1)
-        XCTAssertEqual(store.invocations[0], Invocation.set(value: data, key: key))
+        XCTAssertEqual(store.invocations[0], .set(value: data, key: key))
     }
 
     func testClear() {
         coreStorage.clear(key: key)
         XCTAssertEqual(store.invocations.count, 1)
-        XCTAssertEqual(store.invocations[0], Invocation.removeObject(key: key))
+        XCTAssertEqual(store.invocations[0], .removeObject(key: key))
     }
-
 }

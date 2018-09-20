@@ -32,9 +32,3 @@ extension SearchInteractor: SearchServiceOutput {
         output?.failure(message: errorMessage)
     }
 }
-
-extension SearchInteractor {
-    private var randomBool: Bool {
-        return arc4random_uniform(2) == 0
-    }
-}

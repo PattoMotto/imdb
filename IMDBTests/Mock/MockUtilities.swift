@@ -21,3 +21,8 @@ extension MockInvocation {
 func == <T: MockInvocation> (lhs: T?, rhs: T?) -> Bool {
     return lhs?.hashValue == rhs?.hashValue
 }
+
+protocol Mockable {
+    associatedtype Invocation
+    var invocations: [Invocation] { get }
+}
