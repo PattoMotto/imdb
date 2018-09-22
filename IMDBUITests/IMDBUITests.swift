@@ -3,17 +3,17 @@
 import XCTest
 
 class IMDBUITests: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
         XCUIApplication().launch()
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
-    
+
     func testSearchBatmanShouldSeeMovieListWithDetails() {
         //        TODO: clear recent search
         /**
@@ -29,7 +29,7 @@ class IMDBUITests: XCTestCase {
          movie poster exist
          */
     }
-    
+
     func testSearchBatmanAndScrollTo30thCell() {
         //        TODO: clear recent search
         /**
@@ -42,7 +42,7 @@ class IMDBUITests: XCTestCase {
          scroll to 30th cell
          */
     }
-    
+
     func testSearchWithNotExistMovieShouldShowError() {
         //        TODO: clear recent search
         /**
@@ -55,7 +55,7 @@ class IMDBUITests: XCTestCase {
          recent search not contain zzzzz
          */
     }
-    
+
     func testDifferenceSearch10TimesAndCheckRecentSearch() {
         //        TODO: clear recent search
         /**
@@ -69,9 +69,9 @@ class IMDBUITests: XCTestCase {
          tap search field
          recent search contain batman / super man / iron man / wonder woman / spider man / x men / flash / doctor / marvel / dc
          */
-        
+
     }
-    
+
     func testSearchFromRecentSearch() {
         //        TODO: clear recent search
         //        TODO: mock recent search batman
