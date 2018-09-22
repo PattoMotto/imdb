@@ -6,7 +6,7 @@ import XCTest
 final class SearchPresenterTests: XCTestCase {
 
     private let title = "Test Title"
-    private let errorMessage = "Test Error"
+    private let message = "Test Error"
     private var presenter: SearchPresenter!
     private var view: SearchViewInputMock!
     private var interactor: SearchInteractorInputMock!
@@ -29,7 +29,6 @@ final class SearchPresenterTests: XCTestCase {
         interactor = nil
         router = nil
         presenter = nil
-
         super.tearDown()
     }
 
@@ -96,9 +95,9 @@ final class SearchPresenterTests: XCTestCase {
     }
 
     func testFailure() {
-        presenter.failure(message: errorMessage)
+        presenter.failure(message: message)
         XCTAssertEqual(view.invocations.count, 1)
-        XCTAssertEqual(view.invocations[0], .showError(message: errorMessage))
+        XCTAssertEqual(view.invocations[0], .showError(message: message))
     }
 
     func testSuccessRecentSearch() {

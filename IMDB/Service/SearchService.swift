@@ -8,7 +8,7 @@ protocol SearchService {
 
 protocol SearchServiceOutput {
     func success(movies: [MovieModel], isFinalPage: Bool)
-    func failure(errorMessage: String)
+    func failure(message: String)
 }
 
 struct SearchError {
@@ -49,20 +49,20 @@ final class SearchServiceImpl: SearchService {
                         let resultList = json[SearchKey.results]  as? [[String: Any]],
                         let totalPages = json[SearchKey.totalPages] as? Int {
                         let mapper = MovieModelMapperImpl()
-                        let movies = mapper.fromJsonArray(jsonArray: resultList).flatMap { $0 }
-                        if movies.count > 0 {
-                            strongSelf.output.success(movies: movies, isFinalPage: page >= totalPages)
+                        let movies = mapper.fromJsonArray(jsonArray: resultList)
+                        if movies.isEmpty {
+                            strongSelf.output.failure(message: SearchError.emptyResult)
                         } else {
-                            strongSelf.output.failure(errorMessage: SearchError.emptyResult)
+                            strongSelf.output.success(movies: movies, isFinalPage: page >= totalPages)
                         }
                     } else {
-                        strongSelf.output.failure(errorMessage: SearchError.malformedResponse)
+                        strongSelf.output.failure(message: SearchError.malformedResponse)
                     }
                 case .failure(let error):
                     if let error = error as? URLError {
-                        strongSelf.output.failure(errorMessage: error.localizedDescription)
+                        strongSelf.output.failure(message: error.localizedDescription)
                     } else {
-                        strongSelf.output.failure(errorMessage: SearchError.unknownError)
+                        strongSelf.output.failure(message: SearchError.unknownError)
                     }
                 }
         }

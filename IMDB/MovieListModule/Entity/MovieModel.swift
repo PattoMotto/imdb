@@ -9,15 +9,24 @@ struct MovieModel: Codable {
     let overview: String
 }
 
+extension MovieModel: Equatable {
+    static func == (lhs: MovieModel, rhs: MovieModel) -> Bool {
+        return lhs.title == rhs.title &&
+            lhs.releaseDate == rhs.releaseDate &&
+            lhs.posterPath == rhs.posterPath &&
+            lhs.overview == rhs.overview
+    }
+}
+
 func posterUrl(width: Double, path: String) -> URL? {
     let fractionOfTen = pow(10, log10(width))
-    let ceilWidth = Int(((width / fractionOfTen) + 1) * fractionOfTen)
-    return URL(string: "https://image.tmdb.org/t/p/w\(ceilWidth)\(path)")
+    let ceilingWidth = Int(((width / fractionOfTen) + 1) * fractionOfTen)
+    return URL(string: "https://image.tmdb.org/t/p/w\(ceilingWidth)\(path)")
 }
 
 protocol MovieModelMapper {
     func fromJson(json: [String: Any]) -> MovieModel?
-    func fromJsonArray(jsonArray: [[String: Any]]) -> [MovieModel?]
+    func fromJsonArray(jsonArray: [[String: Any]]) -> [MovieModel]
 }
 
 final class MovieModelMapperImpl: MovieModelMapper {
@@ -45,7 +54,7 @@ final class MovieModelMapperImpl: MovieModelMapper {
         )
     }
 
-    func fromJsonArray(jsonArray: [[String: Any]]) -> [MovieModel?] {
-        return jsonArray.map { fromJson(json: $0) }
+    func fromJsonArray(jsonArray: [[String: Any]]) -> [MovieModel] {
+        return jsonArray.flatMap { fromJson(json: $0) }
     }
 }

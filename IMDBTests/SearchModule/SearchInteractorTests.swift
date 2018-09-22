@@ -6,7 +6,7 @@ import XCTest
 final class SearchInteractorTests: XCTestCase {
 
     private let title = "Test Title"
-    private let errorMessage = "Test Error"
+    private let message = "Test Error"
     private var interactor: SearchInteractor!
     private var output: SearchInteractorOutputMock!
     private var recentSearchManager: RecentSearchManagerMock!
@@ -28,7 +28,6 @@ final class SearchInteractorTests: XCTestCase {
         recentSearchManager = nil
         service = nil
         interactor = nil
-
         super.tearDown()
     }
 
@@ -71,8 +70,8 @@ final class SearchInteractorTests: XCTestCase {
     }
 
     func testFailure() {
-        interactor.failure(errorMessage: errorMessage)
+        interactor.failure(message: message)
         XCTAssertEqual(output.invocations.count, 1)
-        XCTAssertEqual(output.invocations[0], .failure(message: errorMessage))
+        XCTAssertEqual(output.invocations[0], .failure(message: message))
     }
 }
