@@ -12,7 +12,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var overviewTextView: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
 
-    func bind(model: MovieModel) {
+    func bind(model: MovieModel, index: Int) {
         titleTextView.text = model.title
         releaseDateTextView.text = model.releaseDate.toReadableDate()
         overviewTextView.text = model.overview
@@ -22,5 +22,14 @@ class MovieTableViewCell: UITableViewCell {
             path: model.posterPath
             ) else { return }
         posterImageView.kf.setImage(with: resource)
+
+        titleTextView.accessibilityIdentifier =
+            MovieListViewIdentifier.movieTitle(index: index).rawValue
+        releaseDateTextView.accessibilityIdentifier =
+            MovieListViewIdentifier.movieReleaseDate(index: index).rawValue
+        overviewTextView.accessibilityIdentifier =
+            MovieListViewIdentifier.movieOverView(index: index).rawValue
+        posterImageView.accessibilityIdentifier =
+            MovieListViewIdentifier.moviePoster(index: index).rawValue
     }
 }
