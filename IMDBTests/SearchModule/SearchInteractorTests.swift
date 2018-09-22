@@ -28,7 +28,6 @@ final class SearchInteractorTests: XCTestCase {
         recentSearchManager = nil
         service = nil
         interactor = nil
-
         super.tearDown()
     }
 

@@ -10,17 +10,19 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         timer = Timer.scheduledTimer(
-            withTimeInterval: splashTimeout,
-            repeats: false) { [weak self] _ in
-                self?.routeToSearchScreen()
-        }
+            timeInterval: splashTimeout,
+            target: self,
+            selector: #selector(routeToSearchScreen),
+            userInfo: nil,
+            repeats: false
+        )
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-    private func routeToSearchScreen() {
+    @objc private func routeToSearchScreen() {
         let viewController = SearchModuleBuilder.build()
         let navigationViewController = UINavigationController(
             rootViewController: viewController

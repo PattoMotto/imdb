@@ -29,7 +29,6 @@ final class SearchPresenterTests: XCTestCase {
         interactor = nil
         router = nil
         presenter = nil
-
         super.tearDown()
     }
 

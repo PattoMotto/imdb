@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		57F53830C080CDE6F4248AE9 /* Pods_IMDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564636D0E6B7163D166056D7 /* Pods_IMDBTests.framework */; };
+		B11C48F3C56052CB2784AB6F /* Pods_IMDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564636D0E6B7163D166056D7 /* Pods_IMDBTests.framework */; };
 		BA12C2EF214FFEC8008CB5A4 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12C2EE214FFEC8008CB5A4 /* MovieListViewController.swift */; };
 		BA12C2F121500077008CB5A4 /* MovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12C2F021500077008CB5A4 /* MovieListPresenter.swift */; };
 		BA12C2F32150012E008CB5A4 /* MovieListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12C2F22150012E008CB5A4 /* MovieListInteractor.swift */; };
@@ -62,6 +62,10 @@
 		BAD37428214E8E050009A2E3 /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD37427214E8E050009A2E3 /* ModelBase.swift */; };
 		BAD3742C214E93A20009A2E3 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD3742B214E93A20009A2E3 /* MovieModel.swift */; };
 		BAD3742F214E96FC0009A2E3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD3742E214E96FC0009A2E3 /* Date.swift */; };
+		BAE1BCFA215617380007AB47 /* CoreStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1BCF9215617380007AB47 /* CoreStorageMock.swift */; };
+		BAE1BCFC21561A260007AB47 /* SearchModelStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1BCFB21561A260007AB47 /* SearchModelStorageMock.swift */; };
+		BAE1BCFE21561DCC0007AB47 /* MovieListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1BCFD21561DCC0007AB47 /* MovieListViewControllerTests.swift */; };
+		BAE1BD00215671E00007AB47 /* MovieModelMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1BCFF215671E00007AB47 /* MovieModelMapperTests.swift */; };
 		BE22DC8CECC03E86DEDEEF5D /* Pods_IMDBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 360C3C8838B7CDEE9490611A /* Pods_IMDBUITests.framework */; };
 		CEF80CE41B77674F8EBC5721 /* Pods_IMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB710704C546B52A082888E /* Pods_IMDB.framework */; };
 /* End PBXBuildFile section */
@@ -152,6 +156,10 @@
 		BAD37427214E8E050009A2E3 /* ModelBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelBase.swift; sourceTree = "<group>"; };
 		BAD3742B214E93A20009A2E3 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		BAD3742E214E96FC0009A2E3 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		BAE1BCF9215617380007AB47 /* CoreStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreStorageMock.swift; sourceTree = "<group>"; };
+		BAE1BCFB21561A260007AB47 /* SearchModelStorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModelStorageMock.swift; sourceTree = "<group>"; };
+		BAE1BCFD21561DCC0007AB47 /* MovieListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewControllerTests.swift; sourceTree = "<group>"; };
+		BAE1BCFF215671E00007AB47 /* MovieModelMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModelMapperTests.swift; sourceTree = "<group>"; };
 		BE0304F4B900147AA8A2C212 /* Pods-IMDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDBTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMDBTests/Pods-IMDBTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,7 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57F53830C080CDE6F4248AE9 /* Pods_IMDBTests.framework in Frameworks */,
+				B11C48F3C56052CB2784AB6F /* Pods_IMDBTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +216,7 @@
 				BA74D3092153E27E005E282A /* StoreMock.swift */,
 				BA74D3062153E17C005E282A /* CoreStorageTests.swift */,
 				BA9DE44F21540F0900DE7EE2 /* CoreApiMock.swift */,
+				BAE1BCF9215617380007AB47 /* CoreStorageMock.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -265,8 +274,10 @@
 			children = (
 				BA9DE44021540CE000DE7EE2 /* MovieListModuleMock.swift */,
 				BA9DE44221540CF600DE7EE2 /* MovieListModuleBuilderTests.swift */,
+				BAE1BCFD21561DCC0007AB47 /* MovieListViewControllerTests.swift */,
 				BA9DE44421540D1A00DE7EE2 /* MovieListInteractorTests.swift */,
 				BA9DE44621540D2600DE7EE2 /* MovieListPresenterTests.swift */,
+				BAE1BCFF215671E00007AB47 /* MovieModelMapperTests.swift */,
 			);
 			path = MovieListModule;
 			sourceTree = "<group>";
@@ -274,6 +285,7 @@
 		BA9DE43B21540C3900DE7EE2 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				BAE1BCFB21561A260007AB47 /* SearchModelStorageMock.swift */,
 				BA74D3232153FBCE005E282A /* RecentSearchManagerMock.swift */,
 				BA9DE43C21540C6600DE7EE2 /* SearchModelStorageTests.swift */,
 				BA9DE43E21540C8C00DE7EE2 /* RecentSearchManagerTests.swift */,
@@ -746,6 +758,7 @@
 			files = (
 				BA9DE44321540CF600DE7EE2 /* MovieListModuleBuilderTests.swift in Sources */,
 				BA9DE44121540CE000DE7EE2 /* MovieListModuleMock.swift in Sources */,
+				BAE1BCFE21561DCC0007AB47 /* MovieListViewControllerTests.swift in Sources */,
 				BA9DE43F21540C8C00DE7EE2 /* RecentSearchManagerTests.swift in Sources */,
 				BA74D3072153E17C005E282A /* CoreStorageTests.swift in Sources */,
 				BA74D3202153F8BF005E282A /* MockUtilities.swift in Sources */,
@@ -757,9 +770,12 @@
 				BA74D3122153F0D8005E282A /* SearchRouterTests.swift in Sources */,
 				BA74D3242153FBCE005E282A /* RecentSearchManagerMock.swift in Sources */,
 				BA9DE43D21540C6600DE7EE2 /* SearchModelStorageTests.swift in Sources */,
+				BAE1BCFC21561A260007AB47 /* SearchModelStorageMock.swift in Sources */,
+				BAE1BD00215671E00007AB47 /* MovieModelMapperTests.swift in Sources */,
 				BA74D30A2153E27E005E282A /* StoreMock.swift in Sources */,
 				BA9DE44C21540D6E00DE7EE2 /* SearchServiceTests.swift in Sources */,
 				BA74D3262153FC95005E282A /* SearchModuleMock.swift in Sources */,
+				BAE1BCFA215617380007AB47 /* CoreStorageMock.swift in Sources */,
 				BA74D31C2153F504005E282A /* SearchViewControllerTests.swift in Sources */,
 				BA9DE44E21540DEF00DE7EE2 /* SearchServiceOutputMock.swift in Sources */,
 				BA74D3162153F164005E282A /* NavigationControllerMock.swift in Sources */,
@@ -927,6 +943,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = IMDB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pattomotto.IMDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -944,6 +961,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = IMDB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pattomotto.IMDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";

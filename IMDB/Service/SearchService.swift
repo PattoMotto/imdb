@@ -49,7 +49,7 @@ final class SearchServiceImpl: SearchService {
                         let resultList = json[SearchKey.results]  as? [[String: Any]],
                         let totalPages = json[SearchKey.totalPages] as? Int {
                         let mapper = MovieModelMapperImpl()
-                        let movies = mapper.fromJsonArray(jsonArray: resultList).flatMap { $0 }
+                        let movies = mapper.fromJsonArray(jsonArray: resultList)
                         if movies.isEmpty {
                             strongSelf.output.failure(message: SearchError.emptyResult)
                         } else {

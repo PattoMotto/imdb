@@ -3,7 +3,7 @@
 import XCTest
 @testable import IMDB
 
-class MovieListModuleBuilderTests: XCTestCase {
+final class MovieListModuleBuilderTests: XCTestCase {
 
     func testBuilder() {
         let expectTitle = "Test Title"
