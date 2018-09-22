@@ -52,6 +52,6 @@ extension SearchPresenter: SearchInteractorOutput {
     }
 
     func success(recentSearch: [SearchModel]) {
-        view?.show(recentSearch: recentSearch)
+        view?.setUp(recentSearch: recentSearch)
     }
 }

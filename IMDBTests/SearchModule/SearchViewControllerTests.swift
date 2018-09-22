@@ -48,7 +48,7 @@ final class SearchViewControllerTests: XCTestCase {
         let indexPath = IndexPath(row: 0, section: 0)
         let recentSearch = [SearchModel(title: title)]
         _ = viewController.view
-        viewController.show(recentSearch: recentSearch)
+        viewController.setUp(recentSearch: recentSearch)
         viewController.tableView(tableView, didSelectRowAt: indexPath)
         XCTAssertEqual(output.invocations.count, 2)
         XCTAssertEqual(output.invocations[1], .recentSearchDidTap(title: title))

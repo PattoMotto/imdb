@@ -97,7 +97,7 @@ extension SearchViewController: ProgressHUD { }
 
 extension SearchViewController: SearchViewInput {
 
-    func show(recentSearch: [SearchModel]) {
+    func setUp(recentSearch: [SearchModel]) {
         self.recentSearch = recentSearch
         recentSearchTableView.reloadData()
         updateSearchTextFieldIfNeeded()

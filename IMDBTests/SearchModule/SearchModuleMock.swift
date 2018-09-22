@@ -8,7 +8,7 @@ final class SearchViewInputMock: SearchViewInput, Mockable {
     var invocations = [Invocation]()
 
     public enum Invocation: MockInvocation {
-        case show(recentSearch: [SearchModel])
+        case setUp(recentSearch: [SearchModel])
         case showNormalLayout
         case showFocusedLayout
         case showLoading
@@ -16,8 +16,8 @@ final class SearchViewInputMock: SearchViewInput, Mockable {
         case showError(message: String)
     }
 
-    func show(recentSearch: [SearchModel]) {
-        invocations.append(.show(recentSearch: recentSearch))
+    func setUp(recentSearch: [SearchModel]) {
+        invocations.append(.setUp(recentSearch: recentSearch))
     }
 
     func showNormalLayout() {
