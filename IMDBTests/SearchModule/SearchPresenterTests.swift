@@ -104,6 +104,6 @@ final class SearchPresenterTests: XCTestCase {
         let expectRecentSearch = [SearchModel(title: title)]
         presenter.success(recentSearch: expectRecentSearch)
         XCTAssertEqual(view.invocations.count, 1)
-        XCTAssertEqual(view.invocations[0], .show(recentSearch: expectRecentSearch))
+        XCTAssertEqual(view.invocations[0], .setUp(recentSearch: expectRecentSearch))
     }
 }

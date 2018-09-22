@@ -3,7 +3,7 @@
 import Foundation
 
 protocol SearchViewInput: class {
-    func show(recentSearch: [SearchModel])
+    func setUp(recentSearch: [SearchModel])
     func showNormalLayout()
     func showFocusedLayout()
     func showLoading()
