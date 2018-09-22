@@ -71,7 +71,7 @@ final class SearchViewController: UIViewController {
     }
 
     private func fadeInRecentSearchIfNeeded() {
-        guard recentSearch.isEmpty else { return }
+        guard !recentSearch.isEmpty else { return }
         animate { [weak self] in
             self?.recentSearchTableView.alpha = 1
         }
