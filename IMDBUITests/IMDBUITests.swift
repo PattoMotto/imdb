@@ -2,12 +2,20 @@
 
 import XCTest
 
-class IMDBUITests: XCTestCase {
+class IMDBUITests: XCTestCase, UITestBase {
+
+    var app: XCUIApplication!
+
+    private lazy var batman = "Batman"
+    private lazy var titles = ["Batman", "Super man", "Iron man",
+                               "Wonder woman", "Spider man", "X men",
+                               "Flash", "Doctor", "Marvel", "DC"]
+    private lazy var notFoundTitle = "zzzzz"
 
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
-        XCUIApplication().launch()
+        app = XCUIApplication()
     }
 
     override func tearDown() {
@@ -15,70 +23,79 @@ class IMDBUITests: XCTestCase {
     }
 
     func testSearchBatmanShouldSeeMovieListWithDetails() {
-        //        TODO: clear recent search
-        /**
-         on search screen
-         search with Batman
-         tap search button
-         loading show
-         success show
-         on movie screen
-         movie title exist
-         movie release date exist
-         movie overview exist
-         movie poster exist
-         */
+        launchWithArguments(arguments: [
+            UITestLaunchArgument.clearRecentSearch
+            ]
+        )
+        search.waitForPresence()
+        search.search(for: batman)
+        hud.expectLoading()
+        hud.expectSuccess()
+        movieList.waitForPresence()
+        movieList.expectCellExistWithAllData(index: 0)
     }
 
-    func testSearchBatmanAndScrollTo30thCell() {
-        //        TODO: clear recent search
-        /**
-         on search screen
-         search with Batman
-         tap search button
-         loading show
-         success show
-         on movie screen
-         scroll to 30th cell
-         */
+    func testSearchBatmanAndScrollTo20thCell() {
+        launchWithArguments(arguments: [
+            UITestLaunchArgument.clearRecentSearch
+            ]
+        )
+        search.waitForPresence()
+        search.search(for: batman)
+        hud.expectLoading()
+        hud.expectSuccess()
+        movieList.waitForPresence()
+        movieList.scrollToCell(index: 20)
+        movieList.expectCellExistWithAllData(index: 20)
     }
 
     func testSearchWithNotExistMovieShouldShowError() {
-        //        TODO: clear recent search
-        /**
-         on search screen
-         search with zzzzz
-         tap search button
-         loading show
-         error show
-         on search screen
-         recent search not contain zzzzz
-         */
+        launchWithArguments(arguments: [
+            UITestLaunchArgument.clearRecentSearch
+            ]
+        )
+        search.waitForPresence()
+        search.search(for: notFoundTitle)
+        hud.expectLoading()
+        hud.expectEmptyResult()
+        search.waitForPresence()
+        search.expectRecentSearch(
+            title: notFoundTitle,
+            index: 0,
+            shouldExist: false
+        )
     }
 
     func testDifferenceSearch10TimesAndCheckRecentSearch() {
-        //        TODO: clear recent search
-        /**
-         on search screen
-         search with batman / super man / iron man / wonder woman / spider man / x men / flash / doctor / marvel / dc
-         tap search button
-         on movie screen
-         tap back
-         
-         on search screen
-         tap search field
-         recent search contain batman / super man / iron man / wonder woman / spider man / x men / flash / doctor / marvel / dc
-         */
-
+        launchWithArguments(arguments: [
+            UITestLaunchArgument.clearRecentSearch
+            ]
+        )
+        titles.forEach {
+            search.search(for: $0)
+            hud.expectSuccess()
+            movieList.tapBack()
+        }
+        search.waitForPresence()
+        search.tapSearchTextField()
+        titles.reversed().enumerated().forEach {
+            search.expectRecentSearch(title: $1, index: $0)
+        }
     }
 
     func testSearchFromRecentSearch() {
-        //        TODO: clear recent search
-        //        TODO: mock recent search batman
-        /**
-         on search screen
-         tap search field
-         recent search contain batman
-         */
+        launchWithArguments(arguments: [
+            UITestLaunchArgument.clearRecentSearch,
+            genLaunchArgument(recentSearch: [batman])
+            ]
+        )
+        search.waitForPresence()
+        search.tapSearchTextField()
+        search.expectRecentSearch(title: batman, index: 0)
+    }
+
+    private func genLaunchArgument(recentSearch: [String]) -> String {
+        let param = recentSearch.joined(separator: UITestLaunchArgument.separator)
+        return "\(UITestLaunchArgument.mockRecentSearch)\(UITestLaunchArgument.separator)\(param)"
     }
 }
