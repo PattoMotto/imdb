@@ -27,6 +27,7 @@ class MovieListViewController: UITableViewController {
         tableView.allowsSelection = false
         tableView.backgroundColor = #colorLiteral(red: 0.9227145314, green: 0.9227145314, blue: 0.9227145314, alpha: 1)
         tableView.tableFooterView = UIView()
+        tableView.accessibilityIdentifier = MovieListViewIdentifier.main.rawValue
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,9 +45,12 @@ class MovieListViewController: UITableViewController {
             ) as? MovieTableViewCell else {
                 return MovieTableViewCell()
         }
-        cell.bind(model: movies[indexPath.row])
+        let row = indexPath.row
+        cell.bind(model: movies[indexPath.row], index: row)
+        cell.accessibilityIdentifier = MovieListViewIdentifier.cell(index: row).rawValue
+        cell.isAccessibilityElement = true
         // pre fetch next page
-        if indexPath.row + 3 == movies.count {
+        if row + 3 == movies.count {
             output?.didScrollToBottom()
         }
         return cell

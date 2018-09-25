@@ -10,6 +10,7 @@ final class RecentSearchManagerMock: RecentSearchManager, Mockable {
     enum Invocation: MockInvocation {
         case save(title: String)
         case recentSearch
+        case clear
     }
 
     func save(title: String) {
@@ -21,5 +22,9 @@ final class RecentSearchManagerMock: RecentSearchManager, Mockable {
     func recentSearch() -> [SearchModel] {
         invocations.append(.recentSearch)
         return mockRecentSearch
+    }
+
+    func clear() {
+        invocations.append(.clear)
     }
 }

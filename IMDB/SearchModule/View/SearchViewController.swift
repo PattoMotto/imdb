@@ -28,6 +28,11 @@ final class SearchViewController: UIViewController {
     }
 
     override func viewDidLoad() {
+        setUpView()
+        output?.viewIsReady()
+    }
+
+    private func setUpView() {
         searchTextField.delegate = self
         recentSearchTableView.alpha = 0
         recentSearchTableView.layer.cornerRadius = 5
@@ -37,7 +42,14 @@ final class SearchViewController: UIViewController {
         setupKeyboardObserver()
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(keyboardDisableViewDidTap))
         keyboardDisableView.addGestureRecognizer(tapRecognizer)
-        output?.viewIsReady()
+        view.accessibilityIdentifier =
+            SearchViewIdentifier.main.rawValue
+        searchTextField.accessibilityIdentifier =
+            SearchViewIdentifier.searchTextField.rawValue
+        recentSearchTableView.accessibilityIdentifier =
+            SearchViewIdentifier.recentSearchTableView.rawValue
+        searchButton.accessibilityIdentifier =
+            SearchViewIdentifier.searchButton.rawValue
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -164,6 +176,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text = recentSearch[indexPath.row].title
         cell.backgroundColor = .clear
         cell.selectedBackgroundView = selectedBackgroundView
+        cell.accessibilityIdentifier = SearchViewIdentifier.recentSearchCell(index: indexPath.row).rawValue
         return cell
     }
 

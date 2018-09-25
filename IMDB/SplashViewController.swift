@@ -5,7 +5,7 @@ import UIKit
 class SplashViewController: UIViewController {
 
     private var timer: Timer?
-    private let splashTimeout: TimeInterval = 3
+    private let splashTimeout: TimeInterval = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
