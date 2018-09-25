@@ -33,10 +33,10 @@ extension XCUIElement {
         return XCUIApplication().windows.element(boundBy: 0).frame.contains(frame)
     }
 
-    func waitForHittable(duration: TimeInterval = UITestTimeOut.long) -> Bool {
+    func waitForHittable(duration: TimeInterval = UITestTimeOut.long) {
         let predicate = NSPredicate(format: "isHittable == true")
         let expectation = XCTNSPredicateExpectation(predicate: predicate, object: self)
         let result = XCTWaiter().wait(for: [expectation], timeout: duration)
-        return result == .completed
+        XCTAssertTrue(result == .completed)
     }
 }
