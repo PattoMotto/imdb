@@ -100,6 +100,10 @@ class IMDBUITests: XCTestCase, UITestBase {
         search.waitForPresence()
         search.tapSearchTextField()
         search.expectRecentSearch(title: batman, index: 0)
+        search.tapRecentSearch(index: 0)
+        hud.expectSuccess()
+        movieList.waitForPresence()
+        movieList.expectCellExistWithAllData(index: 0)
     }
 
     private func genLaunchArgument(recentSearch: [String]) -> String {

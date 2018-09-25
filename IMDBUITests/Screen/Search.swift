@@ -73,6 +73,11 @@ final class Search: ScreenBase {
         }
     }
 
+    func tapRecentSearch(index: Int) {
+        scrollToCell(index: index)
+        recentSearchCell(index: index).tap()
+    }
+
     func scrollToCell(index: Int) {
         recentSearchTableView.scrollToElement(element: recentSearchCell(index: index))
     }
