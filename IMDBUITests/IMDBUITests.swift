@@ -7,6 +7,7 @@ class IMDBUITests: XCTestCase, UITestBase {
     var app: XCUIApplication!
 
     private lazy var batman = "Batman"
+    private lazy var space = "Space"
     private lazy var titles = ["Batman", "Super man", "Iron man",
                                "Wonder woman", "Spider man", "X men",
                                "Flash", "Doctor", "Marvel", "DC"]
@@ -63,14 +64,14 @@ class IMDBUITests: XCTestCase, UITestBase {
         )
     }
 
-    func testDifferenceSearch10TimesAndCheckRecentSearch() {
+    func testDifferenceSearch11TimesAndCheckRecentSearch() {
         launchWithArguments(arguments: [
             UITestLaunchArgument.clearRecentSearch
             ]
         )
         titles.forEach {
             search.search(for: $0)
-            hud.expectSuccess()
+            movieList.waitForPresence()
             movieList.tapBack()
         }
         search.waitForPresence()
@@ -78,6 +79,16 @@ class IMDBUITests: XCTestCase, UITestBase {
         titles.reversed().enumerated().forEach {
             search.expectRecentSearch(title: $1, index: $0)
         }
+        search.search(for: space)
+        movieList.waitForPresence()
+        movieList.tapBack()
+        search.tapSearchTextField()
+        search.expectRecentSearch(title: space, index: 0)
+        search.expectRecentSearch(
+            title: batman,
+            index: 9,
+            shouldExist: false
+        )
     }
 
     func testSearchFromRecentSearch() {

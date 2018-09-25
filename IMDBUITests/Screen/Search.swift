@@ -62,15 +62,14 @@ final class Search: ScreenBase {
     }
 
     func expectRecentSearch(title: String, index: Int, shouldExist: Bool = true) {
-        if shouldExist {
-            if !recentSearchCell(index: index).visible() {
-                scrollToCell(index: index)
-            }
-            XCTAssertEqual(recentSearchCell(index: index).label, title)
+        if recentSearchCell(index: index).exists &&
+            !recentSearchCell(index: index).visible() {
+            scrollToCell(index: index)
+        }
+        if recentSearchCell(index: index).visible() {
+            XCTAssertEqual(recentSearchCell(index: index).label == title, shouldExist)
         } else {
-            if recentSearchCell(index: index).visible() {
-                XCTAssertNotEqual(recentSearchCell(index: index).label, title)
-            }
+            XCTAssertFalse(shouldExist)
         }
     }
 
