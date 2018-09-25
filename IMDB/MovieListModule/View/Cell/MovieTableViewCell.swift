@@ -5,6 +5,7 @@ import UIKit
 import Kingfisher
 
 class MovieTableViewCell: UITableViewCell {
+
     static let reuseIdentifier = "MovieTableViewCell"
 
     @IBOutlet weak var titleTextView: UILabel!
@@ -12,7 +13,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var overviewTextView: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
 
-    func bind(model: MovieModel, index: Int) {
+    func bind(model: MovieModel) {
         titleTextView.text = model.title
         releaseDateTextView.text = model.releaseDate.toReadableDate()
         overviewTextView.text = model.overview
@@ -24,12 +25,12 @@ class MovieTableViewCell: UITableViewCell {
         posterImageView.kf.setImage(with: resource)
 
         titleTextView.accessibilityIdentifier =
-            MovieListViewIdentifier.movieTitle(index: index).rawValue
+            MovieListViewIdentifier.movieTitle.rawValue
         releaseDateTextView.accessibilityIdentifier =
-            MovieListViewIdentifier.movieReleaseDate(index: index).rawValue
+            MovieListViewIdentifier.movieReleaseDate.rawValue
         overviewTextView.accessibilityIdentifier =
-            MovieListViewIdentifier.movieOverView(index: index).rawValue
+            MovieListViewIdentifier.movieOverView.rawValue
         posterImageView.accessibilityIdentifier =
-            MovieListViewIdentifier.moviePoster(index: index).rawValue
+            MovieListViewIdentifier.moviePoster.rawValue
     }
 }

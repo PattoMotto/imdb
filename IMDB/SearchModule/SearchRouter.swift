@@ -4,10 +4,12 @@ import Foundation
 import UIKit
 
 final class SearchRouter {
+
     weak var viewController: UIViewController?
 }
 
 extension SearchRouter: SearchRouterInput {
+
     func routeToMovieList(searchTitle: String,
                           movies: [MovieModel],
                           isFinalPage: Bool) {

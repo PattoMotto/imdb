@@ -3,6 +3,7 @@
 import Foundation
 
 final class SearchPresenter {
+
     weak var view: SearchViewInput?
     var router: SearchRouterInput?
     var interactor: SearchInteractorInput?
@@ -17,6 +18,7 @@ final class SearchPresenter {
 }
 
 extension SearchPresenter: SearchViewOutput {
+
     func viewIsReady() {
         interactor?.fetchRecentSearch()
     }
@@ -35,6 +37,7 @@ extension SearchPresenter: SearchViewOutput {
 }
 
 extension SearchPresenter: SearchInteractorOutput {
+
     func success(movies: [MovieModel], isFinalPage: Bool) {
         view?.showNormalLayout()
         view?.showSuccess()

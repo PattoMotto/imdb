@@ -4,6 +4,7 @@ import Foundation
 import KRProgressHUD
 
 protocol ProgressHUD {
+
     func showLoading()
     func showSuccess()
     func showError(message: String)
@@ -12,11 +13,11 @@ protocol ProgressHUD {
 extension ProgressHUD {
 
     func showLoading() {
-        KRProgressHUD.show(withMessage: "Loading...")
+        KRProgressHUD.show(withMessage: "Loading")
     }
 
     func showSuccess() {
-        KRProgressHUD.showSuccess()
+        KRProgressHUD.showSuccess(withMessage: "Success")
     }
 
     func showError(message: String) {
