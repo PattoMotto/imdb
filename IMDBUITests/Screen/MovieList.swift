@@ -80,6 +80,7 @@ final class MovieList: ScreenBase {
     }
 
     func tapBack() {
+        backButton.waitForHittable()
         backButton.tap()
     }
 }

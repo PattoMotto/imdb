@@ -70,7 +70,7 @@ class IMDBUITests: XCTestCase, UITestBase {
         )
         titles.forEach {
             search.search(for: $0)
-            hud.expectSuccess()
+            movieList.waitForPresence()
             movieList.tapBack()
         }
         search.waitForPresence()
