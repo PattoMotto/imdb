@@ -3,6 +3,7 @@
 import Foundation
 
 struct MovieModel: Codable {
+
     let title: String
     let posterPath: String
     let releaseDate: Date
@@ -10,6 +11,7 @@ struct MovieModel: Codable {
 }
 
 extension MovieModel: Equatable {
+
     static func == (lhs: MovieModel, rhs: MovieModel) -> Bool {
         return lhs.title == rhs.title &&
             lhs.releaseDate == rhs.releaseDate &&
@@ -19,12 +21,14 @@ extension MovieModel: Equatable {
 }
 
 func posterUrl(width: Double, path: String) -> URL? {
+
     let fractionOfTen = pow(10, log10(width))
     let ceilingWidth = Int(((width / fractionOfTen) + 1) * fractionOfTen)
     return URL(string: "https://image.tmdb.org/t/p/w\(ceilingWidth)\(path)")
 }
 
 protocol MovieModelMapper {
+
     func fromJson(json: [String: Any]) -> MovieModel?
     func fromJsonArray(jsonArray: [[String: Any]]) -> [MovieModel]
 }

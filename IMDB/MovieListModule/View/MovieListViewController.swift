@@ -10,7 +10,7 @@ class MovieListViewController: UITableViewController {
     var output: MovieListViewOutput?
 
     override func viewDidLoad() {
-        setupTableView()
+        setUpView()
         output?.viewIsReady()
     }
 
@@ -19,7 +19,12 @@ class MovieListViewController: UITableViewController {
         navigationController?.isNavigationBarHidden = false
     }
 
-    private func setupTableView() {
+    private func setUpView() {
+        setUpTableView()
+        view.isAccessibilityElement = false
+    }
+
+    private func setUpTableView() {
         let nib = UINib(nibName: MovieTableViewCell.reuseIdentifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: MovieTableViewCell.reuseIdentifier)
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -46,7 +51,7 @@ class MovieListViewController: UITableViewController {
                 return MovieTableViewCell()
         }
         let row = indexPath.row
-        cell.bind(model: movies[indexPath.row], index: row)
+        cell.bind(model: movies[indexPath.row])
         cell.accessibilityIdentifier = MovieListViewIdentifier.cell(index: row).rawValue
         cell.isAccessibilityElement = true
         // pre fetch next page
@@ -62,6 +67,7 @@ class MovieListViewController: UITableViewController {
 }
 
 extension MovieListViewController: ProgressHUD { }
+
 extension MovieListViewController: MovieListViewInput {
 
     func showTitle(title: String) {

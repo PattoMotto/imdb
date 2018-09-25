@@ -5,6 +5,7 @@ import UIKit
 import Typist
 
 final class SearchViewController: UIViewController {
+
     let animationDuration = 0.4
     let defaultMargin = CGFloat(8)
     let keyboard = Typist()
@@ -42,6 +43,7 @@ final class SearchViewController: UIViewController {
         setupKeyboardObserver()
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(keyboardDisableViewDidTap))
         keyboardDisableView.addGestureRecognizer(tapRecognizer)
+        view.isAccessibilityElement = false
         view.accessibilityIdentifier =
             SearchViewIdentifier.main.rawValue
         searchTextField.accessibilityIdentifier =
@@ -173,10 +175,12 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") ??
             UITableViewCell(style: .default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = recentSearch[indexPath.row].title
+        let title = recentSearch[indexPath.row].title
+        cell.textLabel?.text = title
         cell.backgroundColor = .clear
         cell.selectedBackgroundView = selectedBackgroundView
         cell.accessibilityIdentifier = SearchViewIdentifier.recentSearchCell(index: indexPath.row).rawValue
+        cell.accessibilityLabel = title
         return cell
     }
 

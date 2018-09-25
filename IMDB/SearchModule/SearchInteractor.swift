@@ -3,12 +3,14 @@
 import Foundation
 
 final class SearchInteractor {
+
     weak var output: SearchInteractorOutput?
     var service: SearchService?
     var recentSearchManager: RecentSearchManager?
 }
 
 extension SearchInteractor: SearchInteractorInput {
+
     func search(title: String) {
         service?.search(title: title, page: 1)
     }
@@ -24,6 +26,7 @@ extension SearchInteractor: SearchInteractorInput {
 }
 
 extension SearchInteractor: SearchServiceOutput {
+
     func success(movies: [MovieModel], isFinalPage: Bool) {
         output?.success(movies: movies, isFinalPage: isFinalPage)
     }

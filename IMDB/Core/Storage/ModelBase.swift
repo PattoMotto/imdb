@@ -3,6 +3,7 @@
 import Foundation
 
 protocol ModelStorageBase {
+
     var key: String { get }
     var storage: CoreStorage { get }
     func readCodable<T>() -> T? where T: Codable

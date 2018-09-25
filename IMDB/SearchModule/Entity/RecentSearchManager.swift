@@ -3,8 +3,10 @@
 import Foundation
 
 protocol RecentSearchManager {
+
     func save(title: String)
     func recentSearch() -> [SearchModel]
+    func clear()
 }
 
 final class RecentSearchManagerImpl: RecentSearchManager {
@@ -42,5 +44,9 @@ final class RecentSearchManagerImpl: RecentSearchManager {
 
     func recentSearch() -> [SearchModel] {
         return recentList
+    }
+
+    func clear() {
+        store.clear()
     }
 }

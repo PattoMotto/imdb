@@ -3,6 +3,7 @@
 import Foundation
 
 protocol CoreStorage {
+
     @discardableResult func read(key: String) -> Data?
     func write(value: Data, key: String)
     @discardableResult func read<T>(key: String) -> T? where T: Codable
@@ -11,6 +12,7 @@ protocol CoreStorage {
 }
 
 protocol Store {
+
     func data(forKey defaultName: String) -> Data?
     func set(_ value: Any?, forKey defaultName: String)
     func string(forKey defaultName: String) -> String?

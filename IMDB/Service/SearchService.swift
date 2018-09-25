@@ -3,15 +3,18 @@
 import Foundation
 
 protocol SearchService {
+
     func search(title: String, page: Int)
 }
 
 protocol SearchServiceOutput {
+
     func success(movies: [MovieModel], isFinalPage: Bool)
     func failure(message: String)
 }
 
 struct SearchError {
+
     static let malformedResponse = "Malformed Response"
     static let unknownError = "Unknown Error"
     static let emptyResult = "Empty result"
@@ -67,5 +70,4 @@ final class SearchServiceImpl: SearchService {
                 }
         }
     }
-
 }

@@ -3,6 +3,7 @@
 import Foundation
 
 final class MovieListPresenter {
+
     weak var view: MovieListViewInput?
     var interactor: MovieListInteractorInput?
     var movies: [MovieModel] = []
@@ -28,6 +29,7 @@ extension MovieListPresenter: MovieListViewOutput {
 }
 
 extension MovieListPresenter: MovieListInteractorOutput {
+
     func success(movies: [MovieModel]) {
         loading = false
         page+=1
