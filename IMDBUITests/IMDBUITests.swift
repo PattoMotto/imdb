@@ -29,7 +29,6 @@ class IMDBUITests: XCTestCase, UITestBase {
         )
         search.waitForPresence()
         search.search(for: batman)
-        hud.expectLoading()
         hud.expectSuccess()
         movieList.waitForPresence()
         movieList.expectCellExistWithAllData(index: 0)
@@ -42,7 +41,6 @@ class IMDBUITests: XCTestCase, UITestBase {
         )
         search.waitForPresence()
         search.search(for: batman)
-        hud.expectLoading()
         hud.expectSuccess()
         movieList.waitForPresence()
         movieList.scrollToCell(index: 20)
@@ -56,7 +54,6 @@ class IMDBUITests: XCTestCase, UITestBase {
         )
         search.waitForPresence()
         search.search(for: notFoundTitle)
-        hud.expectLoading()
         hud.expectEmptyResult()
         search.waitForPresence()
         search.expectRecentSearch(
