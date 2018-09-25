@@ -9,6 +9,7 @@ final class SearchViewControllerTests: XCTestCase {
     private var viewController: SearchViewController!
     private var output: SearchViewOutputMock!
     private let textField = UITextField()
+
     override func setUp() {
         super.setUp()
         output = SearchViewOutputMock()

@@ -3,7 +3,7 @@
 import Foundation
 
 extension Date {
-    static func fromYYYYDDMM(value: String) -> Date? {
+    static func fromYYYYMMDD(value: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.locale = Locale(identifier: "en_US")

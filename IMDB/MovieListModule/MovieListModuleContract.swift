@@ -17,12 +17,12 @@ protocol MovieListViewOutput: class {
     func didScrollToBottom()
 }
 
-protocol MovieListInteractorInput {
+protocol MovieListInteractorInput: class {
 
     func search(title: String, page: Int)
 }
 
-protocol MovieListInteractorOutput {
+protocol MovieListInteractorOutput: class {
 
     func success(movies: [MovieModel])
     func failure(message: String)
