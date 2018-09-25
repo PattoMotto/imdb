@@ -6,15 +6,15 @@ import Typist
 
 final class SearchViewController: UIViewController {
 
-    let animationDuration = 0.4
-    let defaultMargin = CGFloat(8)
-    let keyboard = Typist()
-    var output: SearchViewOutput?
+    private let animationDuration = 0.4
+    private let defaultMargin = CGFloat(8)
+    private let keyboard = Typist()
     private var recentSearch: [SearchModel] = []
     private let selectedBackgroundView = UIView()
     private var movieTitle: String {
         return searchTextField.text?.trimmingCharacters(in: .whitespaces) ?? ""
     }
+    var output: SearchViewOutput?
 
     @IBOutlet weak var searchTextTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchTextCenterConstraint: NSLayoutConstraint!

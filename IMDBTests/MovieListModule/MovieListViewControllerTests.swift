@@ -7,6 +7,7 @@ final class MovieListViewControllerTests: XCTestCase {
 
     private var viewController: MovieListViewController!
     private var output: MovieListViewOutputMock!
+
     override func setUp() {
         super.setUp()
         output = MovieListViewOutputMock()

@@ -47,7 +47,7 @@ final class MovieModelMapperImpl: MovieModelMapper {
         let posterPath: String = json[ResultListKey.posterPath] as? String ?? ""
         let overview: String = json[ResultListKey.overview] as? String ?? ""
         guard let releaseDateString = json[ResultListKey.releaseDate] as? String,
-            let releaseDate = Date.fromYYYYDDMM(value: releaseDateString) else {
+            let releaseDate = Date.fromYYYYMMDD(value: releaseDateString) else {
                 return nil
         }
         return MovieModel(

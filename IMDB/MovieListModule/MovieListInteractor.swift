@@ -5,7 +5,7 @@ import Foundation
 final class MovieListInteractor {
 
     var service: SearchService!
-    var output: MovieListInteractorOutput!
+    weak var output: MovieListInteractorOutput!
 }
 
 extension MovieListInteractor: MovieListInteractorInput {

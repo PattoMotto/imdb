@@ -9,7 +9,7 @@ final class MovieModelMapperTests: XCTestCase {
         title: "Test Title",
         posterPath: "/test.photo",
         // swiftlint:disable:next force_unwrapping
-        releaseDate: Date.fromYYYYDDMM(value: "1989-06-23")!,
+        releaseDate: Date.fromYYYYMMDD(value: "1989-06-23")!,
         overview: "Test Overview"
     )
 
