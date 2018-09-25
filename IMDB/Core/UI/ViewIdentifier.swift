@@ -13,6 +13,7 @@ extension ViewIdentifier {
     }
 
     public var rawValue: String {
-        return String(reflecting: self)
+
+        return "\(type(of: self)).\(self)"
     }
 }
